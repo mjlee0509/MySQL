@@ -672,7 +672,7 @@ select sum(o_saleprice) from orders;
 -- 13. 1번 고객이 주문한 도서 총 판매액 조회 
 select sum(o_saleprice) from orders where customer_id=1;
 -- 14. ORDERS 테이블로 부터 평균판매가, 최고판매가, 최저판매가 조회 
-select avg(o_saleprice) as '평균판매가', max(o_saleprice) as '최고판매가', min(o_saleprice) as '최저판매가' from orders;
+select round(avg(o_saleprice),0) as '평균판매가', max(o_saleprice) as '최고판매가', min(o_saleprice) as '최저판매가' from orders;
 -- 15. 고객별로 주문한 도서의 총 수량과 총 판매액 조회
 select customer_id, count(*), sum(o_saleprice) from orders group by customer_id;
 -- 16. 가격이 8,000원 이상인 도서를 구매한 고객에 대해 고객별 주문 도서의 총 수량 조회 (GROUP BY 활용)
